@@ -1,6 +1,6 @@
 package xadrez.pecas;
 
-import tabuleiro.Tabuleiro;
+import Tabuleiro.Tabuleiro;
 import xadrez.PecasXadrez;
 import xadrez.Cor;
 
@@ -12,7 +12,8 @@ public class Torre extends PecasXadrez{
 
     }
     @Override
-    public String toString(){
-        return "T";
-    }
+	public String toString() {
+		return "T";
+	}
+    
 }

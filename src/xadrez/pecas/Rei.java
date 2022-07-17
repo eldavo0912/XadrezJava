@@ -1,6 +1,6 @@
 package xadrez.pecas;
 
-import tabuleiro.Tabuleiro;
+import Tabuleiro.Tabuleiro;
 import xadrez.PecasXadrez;
 import xadrez.Cor;
 
@@ -10,7 +10,8 @@ public class Rei extends PecasXadrez{
 
     }
     @Override
-    public String toString(){
-        return "R";
-    }
+	public String toString() {
+		return "R";
+	}
+    
 }
