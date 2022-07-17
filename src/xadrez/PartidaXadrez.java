@@ -6,6 +6,7 @@ public class PartidaXadrez {
 	private Tabuleiro tabuleiro;
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8,8);
+		iniciarPartida();s
 	}
 	public PecasXadrez[][] getPecas(){
 		PecasXadrez[][] matriz =  new PecasXadrez[tabuleiro.getLinhas()][tabuleiro.getColunas()];		
@@ -15,5 +16,9 @@ public class PartidaXadrez {
 			}
 		}
 		return matriz;
+	
+	}
+	private void iniciarPartida(){
+		tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.PRETO), new Posicao(0,4));
 	}
 }
