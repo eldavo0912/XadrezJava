@@ -41,12 +41,11 @@ public class UI {
 		if(peca == null) {
 			System.out.print("-");
 		}else {
-			System.out.print(peca);
 			if (peca.getCor() == Cor.BRANCO) {
-				System.out.println(ANSI_WHITE+ peca +ANSI_RESET);
+				System.out.print(ANSI_WHITE+ peca +ANSI_RESET);
 			}
 			else {
-				System.out.println(ANSI_YELLOW + peca + ANSI_RESET);
+				System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
 			}
 		}
 		System.out.print(" ");
