@@ -1,7 +1,11 @@
 package aplicativo;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Cor;
 import xadrez.PecasXadrez;
+import xadrez.XadrezPosicao;
 
 public class UI {
 
@@ -23,11 +27,31 @@ public class UI {
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-
 	
+	
+	public static void clearScreen() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+		}
+	
+	public static XadrezPosicao lerPosicao(Scanner scan) {
+
+		try {
+			String c = scan.nextLine();
+			char coluna = c.charAt(0);
+			int linha = Integer.parseInt(c.substring(1));
+			return new XadrezPosicao(coluna, linha);
+		} 
+		catch (RuntimeException e) {
+			throw new InputMismatchException("Erro ao ler a posição, digite  uma posição valida");
+		}
+	}
+	
+	
+
 	public static void printBoard(PecasXadrez[][] pecas) {
-		for(int i =0; i<pecas.length; i++) {
-			System.out.print((8-i)+" ");
+		for (int i = 0; i < pecas.length; i++) {
+			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pecas.length; j++) {
 				printPeca(pecas[i][j]);
 			}
@@ -38,13 +62,12 @@ public class UI {
 	}
 
 	private static void printPeca(PecasXadrez peca) {
-		if(peca == null) {
+		if (peca == null) {
 			System.out.print("-");
-		}else {
+		} else {
 			if (peca.getCor() == Cor.BRANCO) {
-				System.out.print(ANSI_WHITE+ peca +ANSI_RESET);
-			}
-			else {
+				System.out.print(ANSI_WHITE + peca + ANSI_RESET);
+			} else {
 				System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
 			}
 		}

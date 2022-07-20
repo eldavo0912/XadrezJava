@@ -1,16 +1,23 @@
 package xadrez;
 
+import Tabuleiro.Peca;
 import Tabuleiro.Posicao;
 import Tabuleiro.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
 public class PartidaXadrez {
+	
+	
+	
 	private Tabuleiro tabuleiro;
+	
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8,8);
 		iniciarPartida();
 	}
+
+	
 	public PecasXadrez[][] getPecas(){
 		PecasXadrez[][] matriz =  new PecasXadrez[tabuleiro.getLinhas()][tabuleiro.getColunas()];		
 		for(int i =0 ; i<tabuleiro.getLinhas();i++) {
@@ -21,6 +28,31 @@ public class PartidaXadrez {
 		return matriz;
 	
 	}
+	
+	
+	
+	public PecasXadrez execMovimento(XadrezPosicao posicaoOrigem,XadrezPosicao posicaoDestino) {
+			Posicao origem = posicaoOrigem.paraPosicao();
+			Posicao destino = posicaoDestino.paraPosicao();
+			validarPosicaoOrigem(origem);
+			Peca pecaCapturada = fazerMovimento(origem,destino);
+			return (PecasXadrez)pecaCapturada;
+	}
+	private Peca fazerMovimento(Posicao origem, Posicao destino) {
+		Peca p =  tabuleiro.removerPeca(origem);
+		Peca pecaCapturada =tabuleiro.removerPeca(destino);
+		tabuleiro.colocarPeca(p, destino);
+		return pecaCapturada;
+	}
+	private void validarPosicaoOrigem(Posicao origem) {
+		if (!tabuleiro.haPeca(origem)) {
+			throw new ExecaoXadrez("não há peças na posição de origem");
+		}
+	}
+
+
+	
+	
 	private void colocarNovaPeca(char coluna, int linha, PecasXadrez peca) {
 		tabuleiro.colocarPeca(peca, new XadrezPosicao(coluna, linha).paraPosicao());
 	}

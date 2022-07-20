@@ -1,6 +1,7 @@
 package Tabuleiro;
 
-
+import Tabuleiro.Peca;
+import xadrez.ExecaoXadrez;
 
 public class Tabuleiro {
 	private int linhas;
@@ -62,5 +63,17 @@ public class Tabuleiro {
 			throw new ExecaoTabuleiro("Posição não existe no tabuleiro");
 		}
 		return peca(posicao) != null;
+	}
+	public Peca removerPeca(Posicao posicao) {
+		if(!posicaoExiste(posicao)) {
+			throw new ExecaoTabuleiro("posicao inesxistente");
+		}
+		if(peca(posicao)== null) {
+			return null;
+		}
+		Peca aux = peca(posicao);
+		aux.posicao = null; 
+		pecas[posicao.getLinha()][posicao.getColuna()] = null;
+		return aux;
 	}
 }
