@@ -1,6 +1,8 @@
  package Tabuleiro;
 
-public class Posicao {
+import xadrez.XadrezPosicao;
+
+public class Posicao{
 	private int coluna;
 	private int linha;
 	
