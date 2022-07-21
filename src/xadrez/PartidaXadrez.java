@@ -48,6 +48,9 @@ public class PartidaXadrez {
 		if (!tabuleiro.haPeca(origem)) {
 			throw new ExecaoXadrez("não há peças na posição de origem");
 		}
+		if(!tabuleiro.peca(origem).haUmMovimentoPossivel()) {
+			throw new ExecaoXadrez("NÃO MOVIMENTO POSSIVEL PARA A PEÇA");
+		}
 	}
 
 
