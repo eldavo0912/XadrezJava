@@ -1,8 +1,9 @@
 package xadrez.pecas;
 
+import Tabuleiro.Posicao;
 import Tabuleiro.Tabuleiro;
-import xadrez.PecasXadrez;
 import xadrez.Cor;
+import xadrez.PecasXadrez;
 
 public class Torre extends PecasXadrez{
 
@@ -18,6 +19,52 @@ public class Torre extends PecasXadrez{
     @Override
     public boolean[][] movimentosPossiveis(){
     	boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+    	Posicao p = new Posicao(0,0);
+    	// cima
+    	p.setValues(posicao.getLinha() -1, posicao.getColuna());
+    	while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    		p.setLinha(p.getLinha() -1);
+    	}
+    	if(getTabuleiro().posicaoExiste(p) && haPecaOponente(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    	}
+    	
+    	// baixo
+    	p.setValues(posicao.getLinha() +1, posicao.getColuna());
+    	while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    		p.setLinha(p.getLinha() +1);
+    	}
+    	if(getTabuleiro().posicaoExiste(p) && haPecaOponente(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    	}
+    	
+    	
+    	// esquerda
+    	p.setValues(posicao.getLinha(), posicao.getColuna());
+    	while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    		p.setColuna(p.getColuna()-1);
+    	}
+    	if(getTabuleiro().posicaoExiste(p) && haPecaOponente(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    	}
+    	
+    	
+    	// direita
+    	p.setValues(posicao.getLinha(), posicao.getColuna());
+    	while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    		p.setColuna(p.getColuna()+1);
+    	}
+    	if(getTabuleiro().posicaoExiste(p) && haPecaOponente(p)) {
+    		mat[p.getLinha()][p.getColuna()]= true;
+    	}
+    	
+    	
+    	
+    	
     	return mat;
     }
     

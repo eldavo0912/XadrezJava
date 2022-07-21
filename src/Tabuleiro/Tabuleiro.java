@@ -52,10 +52,10 @@ public class Tabuleiro {
 	}
 	
 	
-	public boolean posicaoExiste(int linha, int coluna) {
+	private boolean posicaoExiste(int linha, int coluna) {
 		return linha >= 0 && linha < linhas && coluna>=0 && coluna < colunas ;
 	}
-	private boolean posicaoExiste(Posicao posicao) {
+	public boolean posicaoExiste(Posicao posicao) {
 		return posicaoExiste(posicao.getLinha(),posicao.getColuna());
 	}
 	public boolean haPeca(Posicao posicao) {

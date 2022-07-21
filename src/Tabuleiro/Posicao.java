@@ -29,7 +29,10 @@ public class Posicao {
 		return "Posicao [linha=" + linha + ", coluna=" + coluna+ "]";
 	}
 
-
+	public void setValues(int linha,int coluna) {
+		this.linha = linha;
+		this.coluna = coluna;
+	}
 	
 	
 	
