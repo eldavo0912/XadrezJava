@@ -20,5 +20,9 @@ public abstract class PecasXadrez extends Peca{
 		return p != null && p.getCor() !=  cor;
 	}
 	
+	public XadrezPosicao pegarPosicaoXadrez() {
+		return XadrezPosicao.daPosicao(posicao);
+	}
+	
 	
 }

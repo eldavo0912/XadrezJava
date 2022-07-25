@@ -60,6 +60,9 @@ public class UI {
 		System.out.println();
 		System.out.println("Turno: "+ partida.getRodada());
 		System.out.println("AGUARDANDO JOGADOR: "+partida.getJogadorAtual());
+		if(partida.getCheck()) {
+			System.out.println("XEQUE!!");
+		}
 	}
 	
 	
