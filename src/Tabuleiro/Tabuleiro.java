@@ -1,7 +1,5 @@
 package Tabuleiro;
 
-import xadrez.Cor;
-
 public class Tabuleiro {
 	private int linhas;
 	private int colunas;

@@ -59,10 +59,16 @@ public class UI {
 		imprimirPecaCapturada(capturads);
 		System.out.println();
 		System.out.println("Turno: "+ partida.getRodada());
-		System.out.println("AGUARDANDO JOGADOR: "+partida.getJogadorAtual());
-		if(partida.getCheck()) {
-			System.out.println("XEQUE!!");
+		if(!partida.getCheckMate()) {
+			System.out.println("AGUARDANDO JOGADOR: "+partida.getJogadorAtual());
+			if(partida.getCheck()) {
+				System.out.println("XEQUE!!");
+			}
+		}else {
+			System.out.println("XEQUE-MATE!!!!");
+			System.out.println("Vencedor: "+partida.getJogadorAtual());
 		}
+		
 	}
 	
 	
