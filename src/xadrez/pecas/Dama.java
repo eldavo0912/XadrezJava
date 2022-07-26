@@ -58,6 +58,7 @@ public class Dama extends PecasXadrez {
 
 		Posicao pBispo = new Posicao(0, 0);
 
+		
 		// NOROESTE
 		pBispo.setValues(posicao.getLinha() - 1, posicao.getColuna() - 1);
 		while (getTabuleiro().posicaoExiste(pBispo) && !getTabuleiro().haPeca(pBispo)) {
@@ -65,7 +66,7 @@ public class Dama extends PecasXadrez {
 			pBispo.setLinha(pBispo.getLinha() - 1);
 			pBispo.setColuna(pBispo.getColuna() - 1);
 		}
-		if (getTabuleiro().posicaoExiste(pBispo) && haPecaOponente(p)) {
+		if (getTabuleiro().posicaoExiste(pBispo) && haPecaOponente(pBispo)) {
 			mat[pBispo.getLinha()][pBispo.getColuna()] = true;
 		}
 

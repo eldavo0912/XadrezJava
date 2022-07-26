@@ -21,14 +21,14 @@ public class Peao extends PecasXadrez {
 		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 
 		Posicao p = new Posicao(0, 0);
-		Posicao p2 = new Posicao(posicao.getLinha() -1 , posicao.getColuna());
-
+		
 		if (getCor() == Cor.BRANCO) {
 			p.setValues(posicao.getLinha() - 1, posicao.getColuna());
 			if(getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p)) {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 			p.setValues(posicao.getLinha() - 2, posicao.getColuna());
+			Posicao p2 = new Posicao(posicao.getLinha() -1 , posicao.getColuna());
 			if(getTabuleiro().posicaoExiste(p) && !getTabuleiro().haPeca(p2) && getContadorMovimento()==0) {
 				mat[p.getLinha()][p.getColuna()]=true;
 			}
@@ -46,6 +46,7 @@ public class Peao extends PecasXadrez {
 				mat[p.getLinha()][p.getColuna()] = true;
 			}
 			p.setValues(posicao.getLinha() + 2, posicao.getColuna());
+			Posicao p2 = new Posicao(posicao.getLinha() +1 , posicao.getColuna());
 			if(getTabuleiro().posicaoExiste(p2) && !getTabuleiro().haPeca(p2) && getContadorMovimento()==0) {
 				mat[p.getLinha()][p.getColuna()]=true;
 			}
